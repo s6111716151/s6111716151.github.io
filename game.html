@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Game</title>
+<link rel="stylesheet" href="jquery-ui.css">
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src = "readfile.js"></script>
+ <style type="text/css">
+ 	body	{background: url("pic/ntou.jpg");
+ 			 background-size:cover;
+ 			 background-position:50% 50%;
+			 background-attachment:fixed;
+			 background-repeat:no-repeat;}
+ 	.dia    {box-shadow: 10px 10px 5px #888888;	
+ 			 vertical-align: center;
+ 			 width: 90%;
+ 			 height: 25%;
+ 			 font-size: 25px;
+ 			 text-align: left;
+ 			 position: absolute;
+ 			 bottom:10%;
+ 			 right:5%;
+ 			 z-index: 2;
+ 			 padding:20px;
+ 			 color: white;
+ 			 background-color: rgba(0,0,0,0.6);
+			}
+	input	{width: 60%;
+			 height: 5%;
+			 font-size: 25px;
+			 text-align: center;
+			 border-color: rgba(0,0,0,0);
+			 color: white;
+			 background-color: rgba(0,0,0,0.6);}
+	.reply1	{position: absolute;
+ 			 top:25%;
+ 			 left: 30%;
+ 			 z-index: 2;}
+ 	.reply2 {position: absolute;
+ 			 top:33%;
+ 			 left:30%;
+ 			 z-index: 2;}
+ 	.reply3 {position: absolute;
+ 			 top:41%;
+ 			 left:30%;
+ 			 z-index: 2;}
+ 	.s  {width: 50%;
+ 			 height: 80%;
+ 			 text-align: center;
+ 			 position: absolute;
+ 			 bottom:10%;
+ 			 right:20%;
+ 			 z-index: 4;
+ 			 font-size: 25px;
+ 			 padding:20px;
+ 			 color: white;
+ 			 background-color: rgba(0,0,0,0.6);}
+ 	.role	{width: 30%;
+ 			 height: 80%;
+ 		     position: absolute;
+ 			 bottom:5%;
+ 			 left:3%;
+ 			 z-index: 1;}
+ 	.ans	{width: 30%;
+ 			 height: 20%;
+ 			 position: absolute;
+ 			 bottom:50%;
+ 			 right:20%;
+ 			 padding:20px;
+ 			 color: white;
+ 			 text-align: center;
+ 			 font-size: 25px;
+ 			 z-index: 1;
+ 			 background-color: rgba(0,0,0,0.6);}
+ 	.home   {width: 15%;
+ 			 height: 15%;
+ 			 z-index: 5;
+ 			 font-size: 30;
+ 			 color: red;
+ 			 background-color: rgba(0,0,0,0.6);}
+ 	.play 	{position: absolute;
+ 			 bottom:5%;
+ 			 left:25%;
+ 			 z-index: 5;
+ 			}
+ </style>
+</head>
+<body>
+	<input type="button" class="home" style="display:none" value="挑戰成功" onclick="changeSence(movie)" id="down">
+	<iframe src="play.html" height="90%" width="60%" frameborder="0" class="play" style="display:none" id="play"></iframe>
+	<div id="ans" class="ans" style="display:none"></div>
+	<img src="pic/emergency.jpg" id="em" style="width:600px;height:240px ;position: absolute;top:25%; left: 20%; z-index: 3; display:none">
+	<div id="s" class="s" onclick="changeSence(dom)"></div>
+	<img id="role" class="role" src="" style="display:none">
+	<input type="button" id="r1" class="reply1" style="display:none">
+    <input type="button" id="r2" class="reply2" style="display:none">
+    <input type="button" id="r3" class="reply3" style="display:none">
+    <div id="dialog" class="dia"  style="display:none"></div>
+    <a href="love.html"><input type = "button" id="home" class="home" style="display:none" value="重新開始"></a>
+</body>
+</html>

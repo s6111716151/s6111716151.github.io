@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>game</title>
+		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href = "style.css">
+		<script type="text/javascript">
+		var td = new Array(),      
+			playing = false,       
+			score = 0,             
+			beat = 0,              
+			success = 0,           
+			knock = 0,            
+			countDown = 30,       
+			interId = null,       
+			timeId = null; 
+			function GameOver(){
+				timeStop();
+				playing = false;
+				clearMouse();
+				alert("遊戲結束！\n你獲得的分數為："+score+"\n命中率為："+success);
+				success = 0;
+				score = 0;
+				knock = 0;
+				beat = 0;
+				countDown = 30; 
+			}
+			function timeShow(){
+				document.form1.remtime.value = countDown;
+				if(countDown == 0){
+					GameOver();
+					return;
+				}else{
+					countDown = countDown-1;
+					timeId = setTimeout("timeShow()",1000);
+				}
+			}
+			function timeStop(){
+				clearInterval(interId);//clearInterval()方法返回setInterval()方法的id
+				clearTimeout(timeId);//clearTime()方法返回setTimeout()的id
+			}
+			function show(){
+				if(playing){
+					var current = Math.floor(Math.random()*25);
+					document.getElementById("td["+current+"]").innerHTML = '<img src="李2.png" class = "Li2">';
+					setTimeout("document.getElementById('td["+current+"]').innerHTML=''",3000);
+				}
+			}
+			function clearMouse(){
+				for(var i=0;i<=24;i++){
+					document.getElementById("td["+i+"]").innerHTML="";
+				}
+			}
+			function hit(id){
+				if(playing==false){
+					alert("請點擊開始遊戲");
+				return;
+				}
+				else{   
+					beat +=1;
+				if(document.getElementById("td["+id+"]").innerHTML!=""){
+					score += 1;
+					knock +=1;
+					success = knock/beat;
+					document.form1.success.value = success;
+					document.form1.score.value = score;
+					document.getElementById("td["+id+"]").innerHTML="";}
+				else{
+					score += -1;
+					success = knock/beat;
+					document.form1.success.value = success;
+					document.form1.score.value = score;
+				}
+			}
+			}
+			function GameStart(){
+				playing = true;
+				interId = setInterval("show()",1000);
+				document.form1.score.value = score;
+				document.form1.success.value = success;
+				timeShow();
+			}
+		</script>
+</head>
+<body>
+	<div id="content">
+            <input type="button" value="開始游戲" onclick="GameStart()">
+            <input type="button" value="結束游戲" onclick="GameOver()">
+           <form name="form1">
+                <label class = "color">分數：</label>
+                <input type="text" name="score" size="5">
+                <label class = "color">命中率：</label>
+                <input type="text" name="success" size="10">
+                <label class = "color">倒數計時：</label>
+                <input type="text" name="remtime" size="5">
+            </form>
+            <table class = "two">
+                <tr>
+                    <td id="td[0]" onclick="hit(0)"></td>
+                    <td id="td[1]" onclick="hit(1)"></td>
+                    <td id="td[2]" onclick="hit(2)"></td>
+                    <td id="td[3]" onclick="hit(3)"></td>
+                    <td id="td[4]" onclick="hit(4)"></td>
+                </tr>
+                <tr>
+                    <td id="td[5]" onclick="hit(5)"></td>
+                    <td id="td[6]" onclick="hit(6)"></td>
+                    <td id="td[7]" onclick="hit(7)"></td>
+                    <td id="td[8]" onclick="hit(8)"></td>
+                    <td id="td[9]" onclick="hit(9)"></td>
+                </tr>
+                <tr>
+                    <td id="td[10]" onclick="hit(10)"></td>
+                    <td id="td[11]" onclick="hit(11)"></td>
+                    <td id="td[12]" onclick="hit(12)"></td>
+                    <td id="td[13]" onclick="hit(13)"></td>
+                    <td id="td[14]" onclick="hit(14)"></td>
+                </tr>
+                <tr>
+                    <td id="td[15]" onclick="hit(15)"></td>
+                    <td id="td[16]" onclick="hit(16)"></td>
+                    <td id="td[17]" onclick="hit(17)"></td>
+                    <td id="td[18]" onclick="hit(18)"></td>
+                    <td id="td[19]" onclick="hit(19)"></td>
+                </tr>
+                <tr>
+                    <td id="td[20]" onclick="hit(20)"></td>
+                    <td id="td[21]" onclick="hit(21)"></td>
+                    <td id="td[22]" onclick="hit(22)"></td>
+                    <td id="td[23]" onclick="hit(23)"></td>
+                    <td id="td[24]" onclick="hit(24)"></td>
+                </tr>
+            </table>
+        </div>
+		</body>
+		</html>

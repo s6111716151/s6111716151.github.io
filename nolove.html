@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href = "style2.css">
+		<script>
+			function start(){
+				var add = document.getElementById("show");
+				add.addEventListener("click",showText,false);
+			}
+			var text = "恭喜你!成為我的同夥";
+			var count = 0;
+			function showText(){
+				var t = text.split("");
+				t=text.charAt(count);
+				document.getElementById("space").innerHTML += t;
+				count++;
+				if(count>10){
+					count = 0;
+					document.getElementById("space").innerHTML = "";
+					showText();
+				}
+			}
+			setInterval(showText,1000);
+			window.addEventListener( "load", start, false );
+			var speed=500;
+			function flashit(){
+			var crosstable=document.getElementById? 
+			document.getElementById("color") : document.all? 
+			document.all.color : ""
+			if (crosstable){
+			if (crosstable.style.borderColor.indexOf("black")!=-1)
+				crosstable.style.borderColor="red"
+			else
+				crosstable.style.borderColor="black"
+				}
+			}
+			setInterval("flashit()", speed);
+			
+			
+			function c(){
+				alert("去死吧!!死肥宅");
+			}
+			/*var td = new Array(),      
+			playing = false,       
+			score = 0,             
+			beat = 0,              
+			success = 0,           
+			knock = 0,            
+			countDown = 30,       
+			interId = null,       
+			timeId = null; 
+			function GameOver(){
+				timeStop();
+				playing = false;
+				clearMouse();
+				alert("遊戲結束！\n你獲得的分數為："+score+"\n命中率為："+success);
+				success = 0;
+				score = 0;
+				knock = 0;
+				beat = 0;
+				countDown = 30;
+			}
+			function timeShow(){
+				document.form1.remtime.value = countDown;
+				if(countDown == 0){
+					GameOver();
+					return;
+				}else{
+					countDown = countDown-1;
+					timeId = setTimeout("timeShow()",1000);
+				}
+			}
+			function timeStop(){
+				clearInterval(interId);//clearInterval()方法返回setInterval()方法的id
+				clearTimeout(timeId);//clearTime()方法返回setTimeout()的id
+			}
+			function show(){
+				if(playing){
+					var current = Math.floor(Math.random()*25);
+					document.getElementById("td["+current+"]").innerHTML = '<img src="李2.png" class = "Li2">';
+					setTimeout("document.getElementById('td["+current+"]').innerHTML=''",3000);
+				}
+			}
+			function clearMouse(){
+				for(var i=0;i<=24;i++){
+					document.getElementById("td["+i+"]").innerHTML="";
+				}
+			}
+			function hit(id){
+				if(playing==false){
+					alert("請點擊開始遊戲");
+				return;
+				}
+				else{   
+					beat +=1;
+				if(document.getElementById("td["+id+"]").innerHTML!=""){
+					score += 1;
+					knock +=1;
+					success = knock/beat;
+					document.form1.success.value = success;
+					document.form1.score.value = score;
+					document.getElementById("td["+id+"]").innerHTML="";}
+				else{
+					score += -1;
+					success = knock/beat;
+					document.form1.success.value = success;
+					document.form1.score.value = score;
+				}
+			}
+			}
+			function GameStart(){
+				playing = true;
+				interId = setInterval("show()",1000);
+				document.form1.score.value = score;
+				document.form1.success.value = success;
+				timeShow();
+			}*/
+		</script>
+	</head>
+	<body >
+	<div>
+		<div>
+			<div><img class = "Li" src = "li.png" id = "show"></div>
+			<div><img class = "text" src = "Talk.png" width = "830" height ="588"></div>
+		</div>
+		<div class = "space" id="space"></div>
+		<table border = 1 width = "1335px" height = "600px" id="color" style =" border:5px solid black;" class = "one">
+		<thead>
+			<tr>
+				<th colspan = "4">個人資料</th>
+			</tr>	
+		<thead>
+		<tbody>
+			<tr>
+				<th colspan = "4">李啟嘉就是我!我是魯蛇</th>
+			</tr>
+		</tbody>
+			<tr>
+				<th>身高</th>
+				<td align = "center">166</td>
+				<th>體重</th>
+				<td align = "center">72</td>
+			</tr>
+			<tr>
+				<th>年齡</th>
+				<td align = "center">24</td>
+				<th>星座</th>
+				<td align = "center">獅子座</td>
+			</tr>
+			<tr>
+				<th>戀愛次數</th>
+				<td align = "center">0</td>
+				<th>電話</th>
+				<td align = "center">0988385501</td>
+			</tr>
+		<tfoot>
+			<tr>
+				<th colspan = "4"><a href = "https://www.facebook.com/profile.php?id=1703149250&fref=ts"><img src = "Lichicha2.jpg" width = "250" height = "199"></th>
+			</tr>
+		</tfoot>
+		</table>
+		<div class = "pos5">
+			<p onclick="c();">死都要當魯蛇</p>
+		</div>
+		<div class = "pos4">
+			<p><a href = "love.html">拜託,請再給我一次機會</p>
+		</div>
+	</body>
+</html>

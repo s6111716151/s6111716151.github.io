@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>love</title>
+		<meta charset = "utf-8">
+		<link rel = "stylesheet" type = "text/css" href = "style3.css">
+		<link rel="stylesheet" type="text/css" href="flexslider.css" />
+		<link href="alertify.core.css" rel="stylesheet">  
+		<link href="alertify.default.css" rel="stylesheet" id = "toggleCSS"> 
+		<script src = "jquery-1.9.1.js"></script>
+		<script src="alertify.min.js"></script> 
+		<script type="text/javascript" src="jquery.flexslider-min.js"></script>
+		<script type="text/javascript">
+		function start(){
+			$(function() {
+			$(".flexslider").flexslider({
+			slideshowSpeed: 4000,
+			animationSpeed: 400, 
+			touch: true 
+			});
+			});	
+		}
+		function clickFunc(i) {
+			$("#bg").css("background-image", 'url("images/s'+i+'.jpg")');
+		}
+		window.addEventListener("load",start,false);
+		</script>
+	</head>
+	<body id = "bg">
+			<div class = "back" style ="top:313px; ">
+				<marquee  direction="left"  class = "fat">肥宅也瘋狂</marquee>
+			</div>
+			<div class = "pos0">
+				<input class = "button" id = "prompt" type = "button" value = "告訴我您的大名" style = "height:50px;"> 
+			</div>
+			<div class = "pos1">
+				<input class = "button" id = "confirm" type = "button" value = "再來看遊戲介紹" style = "height:50px;"> 
+			</div>
+			<div class = "pos2">
+				<a href = "game.html"><input class = "button" type = "button" value = "最後進入劇情囉" style = "height:50px;"></a>
+			</div>
+			<div class = "pos3">
+				<a href = "nolove.html"><input class = "button" type = "button" value = "我才不要戀愛勒" style = "height:50px;"></a>
+			</div>
+		<script>
+		function reset () {
+            $("#toggleCSS").attr("href", "alertify.default.css");
+				
+            alertify.set({
+               labels : {
+                  ok     : "確定",
+                  cancel : "取消"
+               },
+					
+               delay : 5000,
+               buttonReverse : true,
+               buttonFocus   : "ok"
+            });
+         }
+
+         $("#prompt").on( 'click', function () {
+            reset();
+				
+            alertify.prompt("請輸入您的大名", function (e, str) {
+               if (e) {
+                  alertify.success("我叫: " + str);
+				  alertify.log(str+"正在戀愛養成中", "", 0);
+				  localStorage.setItem("UserName", str);
+               } else {
+                  alertify.error("You've clicked Cancel");
+               }
+            }, "loser");
+			
+            return false;
+         });
+		 $("#confirm").on( 'click', function () {
+            reset();
+				
+            alertify.confirm("這是一個能讓你快速脫魯的戀愛養成遊戲<br>並且是個免付費免花體力且精心打造,現<br>實中把不到咩沒關西,虛擬中讓你天天有<br>戀愛的港覺。", function (e) {
+               if (e) {
+                  alertify.success("我已經閱讀完畢");
+               } else {
+                  alertify.error("不要廢話我要快點脫魯");
+               }
+            });
+				
+            return false;
+         });
+		$(function(){
+　			$(window).load(function(){
+　　		$(window).bind('scroll resize', function(){
+　　		var $this = $(this);
+　　		var $this_Top=$this.scrollTop();
+
+		　　//當高度小於100時，關閉區塊 
+		　　if($this_Top < 10){
+		　　　$('#bottom-bar').stop().animate({top:"-65px"});
+		　　　}
+		　　　　if($this_Top > 10){
+		　　　　$('#bottom-bar').stop().animate({top:"0px"});
+		　　　 }
+		　　}).scroll();
+		　});
+		});
+	
+		
+			$(document).ready(function(){
+			$("#Hide").click(function(){
+			$("#hide").hide(1000);
+			});
+			$("#Show").click(function(){
+			$("#hide").show(1000);
+			});
+			});
+		</script>  
+
+		<div class="flexslider" style = "width:400px; height:305px;" id= "hide">
+  		<ul class="slides">
+    		<li><input type="image"  src="images/s1.jpg" class = "s1" style = "width:400px;height:300px;" onclick = "clickFunc('1');"/></li>
+    		<li><input type="image"  src="images/s2.jpg" class = "s1" style = "width:400px;height:300px;" onclick = "clickFunc('2');"/></li>
+			<li><input type="image"  src="images/s3.jpg" class = "s1" style = "width:400px;height:300px;" onclick = "clickFunc('3');"/></li>
+			<li><input type="image"  src="images/s4.jpg" class = "s1" style = "width:400px;height:300px;" onclick = "clickFunc('4');"/></li>
+			<li><input type="image"  src="images/s5.jpg" class = "s1" style = "width:400px;height:300px;" onclick = "clickFunc('5');"/></li>
+  		</ul>
+		</div>
+		<div class = "pos" id = "bottom-bar">
+			<nav>開發人員
+				<ul>
+					<li><a href = "https://www.facebook.com/profile.php?id=100002492457304" target="_blank">潘柏均</a></li>
+					<li><a href = "https://www.facebook.com/profile.php?id=100000391041732" target="_blank">羅睿豪</a></li>
+				</ul>
+			</nav>
+			
+			<input type = "button" value = "隱藏" id = "Hide">
+			<input type = "button" value = "顯示" id = "Show">
+		</div>
+	</body>
+</html>

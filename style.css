@@ -1,0 +1,26 @@
+#content{
+        width: 80%;
+		position:absolute;
+		left: 10%;
+        text-align: center;
+		height:80%;
+		}		
+table.two 	{
+			position:absolute;
+				left:224px;
+			}
+.color	{
+		color:black;
+		}
+table.two:hover	{
+				cursor: url('槌子.png'),auto;
+				}	
+td 		{
+         width: 100px;
+         height: 95px;
+         background-color: #E8CCFF;
+        }
+img.Li2	{
+	     width: 100px;
+         height: 95px;
+		}
